@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="account-creation">
+    <img class="logo-icon" alt="" src="{% static "pages/images/Logo.png" %}" />
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Username</label>
+            {{ form.username }}
+            {{ form.username.errors }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password1.id_for_label }}">Password</label>
+            {{ form.password1 }}
+            {{ form.password1.errors }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password2.id_for_label }}">Confirm Password</label>
+            {{ form.password2 }}
+            {{ form.password2.errors }}
+        </div>
+        <button class="button create-button" type="submit">Create Account</button>
+        <a class="button login-button" href="/login">Login</a>
+    </form>
+    
+</div>
+
+<style>
+    .account-creation {
+        position: relative;
+        text-align: center;
+    }
+
+    .logo-icon {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin: 10px auto;
+        width: 450px;
+    }
+
+    label {
+        display: block;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        border: 1px solid lightgrey;
+        border-radius: 25px;
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+        font-size: 20px;
+        color: white;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 15px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;   
+        width: 200px;        
+        margin-top: 40px;
+        margin-right: 5px;
+        font-size: 20px;
+        display: inline-block;     
+        font-family: 'Poppins', sans-serif;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .create-button {
+        background-color: #00C2FF;
+        color: #ffffff;
+        border: none;
+        height: 50px;
+        width: 210px;
+        margin-left: 30px;
+        
+    }
+
+    .login-button {
+        background-color: #00C2FF;
+        color: #ffffff;
+        margin-top: 10px;
+        border: none;
+        width: 170px;
+        margin-left: 15px;
+    }
+
+    .button:hover {
+        text-decoration: none;
+        background-color: lightgrey;
+        color: #00C2FF;
+        transition: 0.5s;
+    }
+    
+</style>
+
+{% endblock %}

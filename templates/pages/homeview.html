@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class = 'bg'>
+    <div class="overlap">
+        <div class="text-wrapper">
+            <a href="/logout=TRUE/" class="hidden">
+            Continue Anonymously</a></div>
+    </div>
+    <div class="hidden-user-wrapper">
+        <div class="hidden-user">
+            <a href="/login/" class="login">
+            Login </a></div>
+    </div>
+    <img class="logo" alt="Logo" src="{% static "pages/images/Logo.png" %}"/>
+    <div class="div">Welcome to</div>
+</div>
+
+<style>
+    
+    .overlap {
+        border-radius: 18.75px; 
+        height: 75px; 
+        left: 765px; 
+        position: absolute;
+        top: 503.25px; 
+        width: 240px; 
+        background-color: #00C2FF;
+    }
+
+    .text-wrapper {
+        color: #ffffff;
+        font-family: 'Poppins', sans-serif;
+        font-size: 23px; 
+        font-weight: 400;
+        height: 52.5px; 
+        left: 7.5px; 
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 2px; 
+        width: 220.5px;
+    }
+
+    .hidden-user-wrapper {
+        background-size: 100% 100%;
+        background-color: #00C2FF;
+        border-radius: 18.75px; 
+        height: 75px; 
+        left: 441.75px; 
+        position: absolute;
+        top: 503.25px; 
+        width: 240px;
+    }
+
+    .hidden-user {
+        color: #ffffff;
+        font-family: 'Poppins', sans-serif;
+        font-size: 24px; 
+        font-weight: 400;
+        height: 52.5px; 
+        left: 9.75px; 
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 20px; 
+        width: 220.5px; 
+    }
+
+    .logo {
+        height: 212.25px; 
+        left: 614.25px; 
+        object-fit: cover;
+        position: absolute;
+        top: 229.5px; 
+        width: 212.25px; 
+       
+    }
+
+    .div {
+        font-family: 'Poppins', sans-serif;
+        font-size: 48px; 
+        font-style: italic;
+        font-weight: 400;
+        height: 44.25px; 
+        left: 572.25px; 
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: center;
+        top: 132px; 
+        white-space: nowrap;
+        width: 295.5px; 
+    }
+    .hidden, .login{
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hidden:hover{
+        background-color: lightgrey;
+        color: #00C2FF;
+    }
+    .login:hover{
+        background-color: lightgrey;
+        color: #00C2FF;
+    }
+    .hidden-user-wrapper:hover, .overlap:hover{
+        background-color: lightgrey;
+        color: #00C2FF;
+    }
+
+
+
+    
+</style>
+{% endblock %}

@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="blogs">
+    <div class="blogs-item"></div>
+    <a class="button about" href="/home">Home</a>
+    <a class="button blogs1" href="/blogs">Blogs</a>
+    <img class="logo" alt="Logo" src="{% static 'pages/images/Logo.png' %}" />
+    <div class="joystick-journeys">Joystick Journeys</div>
+    <h class="name">{{ name }}</h>
+    <div class="blog-container">
+        {% for post in posts %}
+        <div class="blog-item">
+            <h2>
+                <a href="../../blogs/{{ post.slug }}/">
+                    {{ post.title }}
+                </a>
+            </h2>
+            <p class="date">
+                Published on {{ post.publish }} by {{ post.author }}
+            </p>
+            <p class = 'pbody' >
+                {{ post.body|truncatewords:30|linebreaks }}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<style>
+    .blogs-child,
+    .blogs-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    .blogs-child {
+        height: 695px;
+    }
+
+    .blogs-item {
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+        height: 160px;
+        margin-bottom: 20px;
+    }
+
+    .about,
+    .blogs1 {
+        top: 45px;
+        width: 150px;
+        height: 70px;
+    }
+
+    .about {
+        position: absolute;
+        left: 882px;
+        border-radius: 25px;
+    }
+
+    .blogs1 {
+        position: absolute;
+        left: 1095px;
+    }
+
+    .logo {
+        position: absolute;
+        top: 25px;
+        left: 48px;
+        border-radius: 50%;
+        width: 110px;
+        height: 110px;
+        object-fit: cover;
+
+    }
+
+    .joystick-journeys {
+        position: absolute;
+        top: 36px;
+        left: 180px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 48px;
+        width: 588px;
+        height: 88px;
+        color: #00C2FF;
+        display: flex;
+        align-items: center;
+    }
+
+    .blogs {
+        position: relative;
+        top: 0px;
+        width: 100%;
+        height: 695px;
+        text-align: center;
+        font-size: 32px;
+    }
+
+    .button {
+        color: white;
+        text-decoration: none;
+        background-color: #00C2FF;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        line-height: 70px;
+        font-family: "Poppins", sans-serif;
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    .button:hover {
+        background-color: lightgrey;
+        color: #00C2FF;
+    }
+
+    body { 
+        margin:0;
+        padding:0;
+        font-family:helvetica, sans-serif; 
+    }
+
+    a { 
+        color:#00abff;
+        text-decoration:none; 
+    }
+
+    p{
+      font-size: 16px; 
+      font-family: Merriweather, serif;
+    }
+
+    h1 { 
+        font-weight:normal;
+        border-bottom:1px solid #bbb;
+        padding:0 0 10px 0;
+    }
+
+    h2 {
+        font-weight:normal;
+        margin:30px 0 0;
+    }
+
+    #content { 
+        float:left;
+        width:60%;
+        padding:0 0 0 30px; 
+    }
+
+    p.date { 
+        color:#848080;
+        font-family: georgia, serif;
+        font-size: 12px;
+        font-style: italic; 
+    }
+
+    .name{
+        text-align: center;
+        position: relative;
+        top: 170px;
+        font-family: Poppins, sans-serif;
+
+    }
+
+    .blog-container {
+        margin-top: px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        top: 180px;
+        position: relative;
+    }
+
+    .blog-item {
+        border: 1px solid #ccc;
+        padding: 20px;
+        margin: 0 10px 20px 10px;
+        border-radius: 15px;
+        border-color: #000;
+        width: 300px; /* Adjust the width as needed */
+    }
+
+    .blog-item h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .blog-item a {
+        color: #00C2FF;
+        text-decoration: none;
+    }
+
+    .blog-item a:hover {
+        text-decoration: underline;
+    }
+
+</style>
+{% endblock content %}

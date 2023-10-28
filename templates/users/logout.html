@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="logout-confirmation">
+  <h1 class="logout-confirmation__title">User Logout</h1>
+  <p class="logout-confirmation__text">Are you sure you want to logout?</p>
+  <p class="logout-confirmation__post-title"><b>{{ obj.title }}</b></p>
+
+  <form action="" method="post" class="logout-confirmation__form">
+    {% csrf_token %}
+    <input class="logout-confirmation__submit-button button" type="submit" value="Logout" />
+    <a class="logout-confirmation__cancel-button button" href="../">Cancel</a>
+  </form>
+</div>
+
+<style>
+  .logout-confirmation {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+  }
+
+
+  .logout-confirmation__title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .logout-confirmation__text {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .logout-confirmation__post-title {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .logout-confirmation__form {
+    text-align: center;
+  }
+
+  .logout-confirmation__submit-button,
+  .logout-confirmation__cancel-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .logout-confirmation__submit-button {
+    background-color: #ff4136;
+    color: #fff;
+  }
+
+  .logout-confirmation__submit-button:hover {
+    background-color: #e80000;
+  }
+
+  .logout-confirmation__cancel-button {
+    background-color: #ccc;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .logout-confirmation__cancel-button:hover {
+    background-color: #999;
+    text-decoration: none;
+  }
+</style>
+
+{% endblock content %}

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="loginpage">
+      <img class="logo-icon" alt="" src="{% static "pages/images/Logo.png" %}" />
+      <div class="input-field">
+        <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+        {{ form.username }}
+        {{ form.username.errors }}
+      </div>
+      <div class="input-field">
+        <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+        {{ form.password }}
+        {{ form.password.errors }}
+      </div>
+      <button class="button login-btn" type="submit">Login</button>
+      <a class="button create-account" href="/../signup">Create Account</a>
+    </div>
+  </form>
+
+  <style>
+    .loginpage {
+      position: relative;
+      text-align: center;
+      height: 695px;
+     }
+
+    .logo-icon {
+      border-radius: 50%;
+      width: 230px;
+      height: 230px;
+      object-fit: cover;
+      margin-top: 33px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .input-field {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      background: rgba(0, 0, 0, 0.2);
+      width: 420px;
+      height: 50px;
+      padding: 10px;
+      border: 1px solid lightgrey;
+      border-radius: 25px;
+      font-size: 20px;
+      color: white;
+    }
+
+    .button {
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      border-radius: 15px;
+      width: 175px;
+      background-color: #00C2FF;
+      border: none;
+      padding: 10px 20px;
+      font-size: 20px;
+      text-decoration: none;
+      color: white;
+      margin-top: 40px;
+      margin-right: 5px;
+      margin-left: 10px;
+      display: inline-block;
+    }
+
+    .button:hover {
+      background-color: lightgrey;
+      color: #00C2FF;
+      transition: 0.5s;
+    }
+  </style>
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="rectangle-parent">
+      <div class="frame-child"></div>
+      <img class="logo" alt="Logo" src="{% static "pages/images/Logo.png" %}"/>
+      <div class="welcome">Welcome to the User Dashboard</div>
+      <div class="fname">{{ user.first_name }}</div>
+      <div class="username">{{ user.username }}</div>
+      <div class="email">{{ user.email }}</div>
+      <div class="lname">{{ user.last_name }}</div>
+      {% if cuser == user %}
+        <a class="frame-item" href="/../profile/edit">Edit Profile</a>
+        <a class = 'NewPost' href = '/../newpost'> New Post </a>
+      {% endif %}
+    </div>
+
+    <style>
+        .frame-child {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1510px;
+            height: 202px;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+            border-radius: 25px;
+          }
+          .logo {
+            position: absolute;
+            top: 53px;
+            left: 43px;
+            border-radius: 50%;
+            width: 115px;
+            height: 115px;
+          }
+          .welcome {
+            position: absolute;
+            top: 70px;
+            left: 198px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 633px;
+            height: 80px;
+          }
+          .email,
+          .fname,
+          .lname,
+          .username {
+            position: absolute;
+            top: 270px;
+            left: 198px;
+            background-color: lightgrey;
+            width: 250px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.2);
+            padding-top: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 5px;
+            border: 1px solid lightgrey;
+            border-radius: 25px;
+            font-size: 32px;
+            color: white;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .email,
+          .lname,
+          .username {
+            top: 393px;
+            width: 559px;
+          }
+          .email,
+          .lname {
+            top: 516px;
+          }
+          .lname {
+            top: 270px;
+            left: 507px;
+            width: 250px;
+          }
+
+        .frame-item {
+            position: absolute;
+            top: 75px;
+            left: 900px; /* Adjusted left position */
+            border-radius: 15px;
+            width: 200px;
+            height: 70px;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 15px;
+            background-color: #00C2FF;
+            border: none;
+            text-decoration: none;
+            color: white;
+            margin-right: 5px;
+            margin-left: 10px;
+            display: flex;
+            font-size: 24px;
+            font-weight: bold;
+            justify-content: center;
+            text-align: center;
+            line-height: 70px;
+        }
+
+        .NewPost {
+            position: absolute;
+            top: 75px;
+            left: 1150px; 
+            border-radius: 15px;
+            width: 200px;
+            height: 70px;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 15px;
+            background-color: #00C2FF;
+            border: none;
+            text-decoration: none;
+            color: white;
+            margin-right: 5px;
+            margin-left: 10px;
+            display: flex;
+            font-size: 24px;
+            font-weight: bold;
+            justify-content: center;
+            text-align: center;
+            line-height: 70px;
+        }
+
+          .frame-item{
+            left: 900px;
+          }
+
+          .NewPost{
+            left: 1150px;
+          }
+
+          .rectangle-parent {
+            position: relative;
+            width: 100%;
+            height: 695px;
+            overflow: hidden;
+            text-align: center;
+            font-size: 40px;
+          }
+
+          .frame-item:hover, .NewPost:hover{
+            background-color: lightgrey;
+            color: #00C2FF;
+            transition: 0.5s;
+          }
+    </style>          
+{% endblock %}

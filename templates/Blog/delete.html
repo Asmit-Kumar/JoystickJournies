@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="delete-confirmation">
+  <h1 class="delete-confirmation__title">Delete Post</h1>
+  <p class="delete-confirmation__text">Are you sure you want to delete the following post?</p>
+  <p class="delete-confirmation__post-title"><b>{{ obj.title }}</b></p>
+
+  <form action="" method="post" class="delete-confirmation__form">
+    {% csrf_token %}
+    <input class="delete-confirmation__submit-button button" type="submit" value="Yes, Delete" />
+    <a class="delete-confirmation__cancel-button button" href="../">Cancel</a>
+  </form>
+</div>
+
+<style>
+  .delete-confirmation {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .delete-confirmation__title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .delete-confirmation__text {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .delete-confirmation__post-title {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .delete-confirmation__form {
+    text-align: center;
+  }
+
+  .delete-confirmation__submit-button,
+  .delete-confirmation__cancel-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .delete-confirmation__submit-button {
+    background-color: #ff4136;
+    color: #fff;
+  }
+
+  .delete-confirmation__submit-button:hover {
+    background-color: #e80000;
+  }
+
+  .delete-confirmation__cancel-button {
+    background-color: #ccc;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .delete-confirmation__cancel-button:hover {
+    background-color: #999;
+    text-decoration: none;
+  }
+</style>
+
+{% endblock content %}

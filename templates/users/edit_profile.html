@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="account-creation">
+    <img class="logo-icon" alt="" src="{% static "pages/images/Logo.png" %}" />
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.username.id_for_label }}">Username</label>
+            <input type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.name }}" value="{{ form.username.value }}" readonly>
+            {{ form.username.errors }}
+        </div>
+        
+        <div class="form-group">
+            <label for="{{ form.first_name.id_for_label }}">First Name</label>
+            {{ form.first_name }}
+            {{ form.first_name.errors }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+            {{ form.last_name }}
+            {{ form.last_name.errors }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.email.id_for_label }}">Email</label>
+            {{ form.email }}
+            {{ form.email.errors }}
+        </div>
+        <button class="button update-button" type="submit">Update</button>
+        <a class="button back-button" href="../">Back</a>
+        <div class="form-group">
+            <label>Date Joined</label>
+            <p>{{ user.date_joined }}</p>
+        </div>
+        
+        {{ form.errors }}
+    </form>
+    
+</div>
+
+<style>
+    .account-creation {
+        position: relative;
+        text-align: center;
+    }
+
+    .logo-icon {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin: 10px auto;
+        width: 450px;
+    }
+
+    label {
+        display: block;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        border: 1px solid lightgrey;
+        border-radius: 25px;
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+        font-size: 20px;
+        color: white;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        border-radius: 15px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;   
+        width: 200px;        
+        margin-top: 20px;
+        margin-right: 5px;
+        font-size: 20px;
+        display: inline-block;     
+        font-family: 'Poppins', sans-serif;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .update-button {
+        background-color: #00C2FF;
+        color: #ffffff;
+        border: none;
+        height: 50px;
+        width: 210px;
+        margin-left: 30px;
+        
+    }
+
+    .back-button {
+        background-color: #00C2FF;
+        color: #ffffff;
+        margin-top: 10px;
+        border: none;
+        width: 170px;
+        margin-left: 15px;
+    }
+
+    .button:hover {
+        text-decoration: none;
+        background-color: lightgrey;
+        color: #00C2FF;
+        transition: 0.5s;
+    }
+</style>
+
+{% endblock %}

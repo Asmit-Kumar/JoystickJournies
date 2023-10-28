@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="blogs">
+        <div class="blogs-child"></div>
+        <div class="blogs-item"></div>
+
+        {% if curr_user == author %}
+            <a class = 'button about' href = "/../blogs/{{ post.id }}/update/"> Edit </a>     
+            <a class = 'button blogs1' href = "/../blogs/{{ post.slug }}/delete/"> Delete </a> 
+            <a class = 'button profile' href = "/../user/{{ post.author }}/"> Profile </a>
+        {% else %}
+            <a class = 'button about' href = '/../about/'> About </a>     
+            <a class = 'button blogs1' href = '/../home/'> Home </a> 
+            <a class = 'button profile' href = "/../user/{{ post.author }}/"> Author </a>
+        {% endif %}
+        <img class="logo" alt="Logo" src= "{% static "pages/images/Logo.png" %}"/>
+        <div class = 'blog-content'>
+            <h2>
+                {{ post.title }} 
+            </h2>
+            <p class="date">
+                Published on {{ post.publish }} by {{ post.author }}
+            </p>
+            <p> 
+                {{ post.body }}
+            </p>
+        </div>
+        <div class="joystick-journeys">Joystick Journeys</div>
+    </div>
+
+    <style>
+        .blogs-child,
+        .blogs-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        border-radius: 15px;
+        }
+        .blogs-child {
+        height: 695px;
+        }
+        .blogs-item {
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+        height: 160px;
+        }
+        .about,
+        .blogs1 {
+        top: 45px;
+        width: 150px;
+        height: 70px;
+        }
+        .about {
+        position: absolute;
+        left: 882px;
+        border-radius: 25px;
+        }
+        .blogs1 {
+        left: 1095px;
+        }
+
+        .blogs1,
+        .profile {
+        position: absolute;
+        border-radius: 25px;
+        }
+
+        .profile {
+        top: 45px;
+        left: 1307px;
+        width: 150px;
+        height: 70px;
+        }
+        
+
+        .logo {
+        position: absolute;
+        top: 25px;
+        left: 48px;
+        border-radius: 50%;
+        width: 110px;
+        height: 110px;
+        object-fit: cover;
+        }
+        .joystick-journeys,
+        .the-latest-news {
+        position: absolute;
+        top: 191px;
+        left: 246px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1019px;
+        height: 80px;
+        }
+        .joystick-journeys {
+        top: 36px;
+        left: 180px;
+        font-size: 48px;
+        width: 588px;
+        height: 88px;
+        display: flex;
+        text-align: left;
+        justify-content: flex-start;
+        }
+        .blogs {
+        position: relative;
+        width: 100%;
+        height: 695px;
+        overflow: hidden;
+        text-align: center;
+        font-size: 32px;
+        }
+
+       .button {
+            color: white;
+            text-decoration: none;
+            background-color: #00C2FF;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            line-height: 70px;
+            font-family: Poppins;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .button:hover{
+            background-color: lightgrey;
+            color: #00C2FF;
+            transition: 0.5s;
+        }
+
+        .blog-content{
+            position: relative;
+            display: flex;
+            top: 140px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+    </style>
+{% endblock %}

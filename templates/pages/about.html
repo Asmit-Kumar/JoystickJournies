@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <div class="blogs">
+    <div class="blogs-child"></div>
+    <div class="blogs-item"></div>
+    <a class="button about" href="/home">Home</a>
+    <a class="button blogs1" href="/blogs">Blogs</a>
+    <img class="logo" alt="Logo" src="{% static 'pages/images/Logo.png' %}" />
+    <div class="joystick-journeys">Joystick Journeys</div>
+    <p class="about-paragraph">
+      Video games are a powerful form of entertainment that can transport us to new worlds, 
+      challenge us to think strategically, and help us connect with others. 
+      They are also a great way to learn new skills and concepts. This blog is dedicated to all things video games, 
+      from new releases to classic games, to gaming news and industry trends. 
+      I hope you enjoy reading my blog and find it informative and entertaining.
+    </p>
+  </div>
+
+  <style>
+    .blogs-child,
+    .blogs-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .blogs-child {
+      height: 695px;
+    }
+
+    .blogs-item {
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+      height: 160px;
+    }
+
+    .about,
+    .blogs1 {
+      top: 45px;
+      width: 150px;
+      height: 70px;
+    }
+
+    .about {
+      position: absolute;
+      left: 882px;
+      border-radius: 25px;
+    }
+
+    .blogs1 {
+      position: absolute;
+      left: 1095px;
+    }
+
+    .about-paragraph {
+      position: relative;
+      top: 200px;
+      font-size: 24px;
+      line-height: 24px;
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+
+    .logo {
+      position: absolute;
+      top: 25px;
+      left: 48px;
+      border-radius: 50%;
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+    }
+
+    .joystick-journeys {
+      position: absolute;
+      top: 36px;
+      left: 180px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 48px;
+      width: 588px;
+      height: 88px;
+      color: #00C2FF;
+      display: flex;
+      align-items: center;
+    }
+
+    .blogs {
+      position: relative;
+      top: 0px;
+      width: 100%;
+      height: 695px;
+      text-align: center;
+      font-size: 32px;
+    }
+
+    .button {
+      color: white;
+      text-decoration: none;
+      background-color: #00C2FF;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      line-height: 70px;
+      font-family: "Poppins", sans-serif;
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .button:hover {
+      background-color: lightgrey;
+      color: #00C2FF;
+      duration: 0.5s;
+    }
+  </style>
+{% endblock %}
